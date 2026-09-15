@@ -324,3 +324,20 @@ if (lgGallery) {
     slides[lgIndex].classList.add('lg-why-slide--active');
   }, 3500);
 }
+
+// ============================================
+// LOGO FIJO - Se oculta al hacer scroll
+// ============================================
+const fixedLogo = document.querySelector('.fixed-logo');
+if (fixedLogo) {
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 50) {
+      fixedLogo.classList.add('hidden');
+    } else {
+      fixedLogo.classList.remove('hidden');
+    }
+    lastScroll = currentScroll;
+  });
+}
