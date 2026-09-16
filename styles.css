@@ -168,6 +168,7 @@ body.page-courrier .navbar {
   border-bottom: 1px solid #e5e7eb;
   margin-left: 0;
 }
+body.page-courrier .nav-dropdown-menu { background: #FFFFFF; border: 1px solid #e5e7eb; backdrop-filter: blur(10px); }
 body.page-courrier .nav-dropdown-menu a { color: #061C3C; }
 body.page-courrier .nav-dropdown-menu a:hover { background: #F1F7FF; color: #2563EB; }
 body.page-courrier .nav-links a { color: #061C3C; }
@@ -191,10 +192,11 @@ body.navbar-dark .fixed-logo img {
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 body.seguros-page .fixed-logo img {
-  width: 240px;
+  width: 230px;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)) drop-shadow(0 0 30px rgba(255, 255, 255, 1)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.8));
 }
 body.seguros-page .nav-cta { margin-right: 0 !important; }
-body.seguros-page .nav-container { justify-content: flex-end; }
+body.seguros-page .nav-container { justify-content: flex-end !important; }
 body.page-maritimo .fixed-logo img {
   width: 230px;
   filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)) drop-shadow(0 0 30px rgba(255, 255, 255, 1)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.8));
@@ -376,6 +378,7 @@ gap: 32px;
 body.navbar-light .nav-links a { color: #071C43; }
 body.navbar-light .nav-links a:hover { color: #2563EB; }
 body.navbar-light .nav-toggle span { background: #071C43; }
+body.navbar-light .nav-dropdown-menu { background: #FFFFFF; border: 1px solid #e5e7eb; backdrop-filter: blur(10px); }
 body.navbar-light .nav-dropdown-menu a { color: #071C43; }
 body.navbar-light .nav-dropdown-menu a:hover { background: #F1F7FF; color: #2563EB; }
 body.navbar-light .nav-cta { margin-right: 0 !important; }
@@ -1565,6 +1568,8 @@ body.navbar-dark .nav-dropdown-menu a:hover { background: #0D2E63; color: #18BFF
 .tracking-benefit {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 9px;
 }
 .tb-icon {
@@ -4387,8 +4392,9 @@ display: block;
   display: flex;
   justify-content: center;
 }
-.tt-map svg {
-  width: 200px;
+.tt-map svg,
+.tt-map img {
+  width: 280px;
   height: auto;
 }
 .tt-map-node {
@@ -6245,12 +6251,27 @@ display: block;
   justify-content: space-between;
   gap: 30px;
 }
+.cr-coverage-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+.cr-coverage-text {
+  flex: 1;
+}
+.cr-coverage-text h2 {
+  white-space: nowrap;
+}
 .cr-coverage-left h2 {
   font-size: 26px;
   font-weight: 800;
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 0 0 10px;
+  white-space: nowrap;
 }
 .cr-coverage-left p {
   font-size: 15px;
@@ -6272,6 +6293,7 @@ display: block;
   text-decoration: none;
   white-space: nowrap;
   transition: background 0.25s;
+  flex-shrink: 0;
 }
 .cr-coverage-btn span { transition: transform 0.25s; }
 .cr-coverage-btn:hover { background: #0b52c0; }
