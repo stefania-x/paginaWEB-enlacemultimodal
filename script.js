@@ -72,7 +72,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // REVEAL ON SCROLL (Intersection Observer)
 // ============================================
 const revealElements = document.querySelectorAll(
-  '.hero-content, .trust-item, .why-us-text, .stat-item, ' +
+  '.hero-content, .why-us-text, .stat-item, ' +
   '.tracking-left, .tracking-visual, .client-logo, .cta-inner, ' +
   '.contact-info, .contact-form-box, .section-header, .footer-grid, ' +
   '.services-intro, .service-card, ' +
@@ -326,6 +326,18 @@ if (lgGallery) {
 }
 
 // ============================================
+// PLATAFORMA DE RASTREO - aviso si llega una guía
+// ============================================
+const platformGuide = document.getElementById('platformGuide');
+if (platformGuide) {
+  const guia = new URLSearchParams(window.location.search).get('guia');
+  if (guia && guia.trim()) {
+    platformGuide.textContent = 'Número de guía recibido: ' + guia.trim() + '. Aún no podemos consultarlo.';
+    platformGuide.hidden = false;
+  }
+}
+
+// ============================================
 // LOGO FIJO - Se oculta al hacer scroll
 // ============================================
 const fixedLogo = document.querySelector('.fixed-logo');
@@ -333,7 +345,7 @@ if (fixedLogo) {
   let lastScroll = 0;
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
-    if (currentScroll > 50) {
+    if (currentScroll > 50 && window.innerWidth > 768) {
       fixedLogo.classList.add('hidden');
     } else {
       fixedLogo.classList.remove('hidden');
